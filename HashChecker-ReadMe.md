@@ -22,3 +22,5 @@ This Windows batch script automatically calculates SHA256 hashes for all files i
 - The script requires read access to the files it's checking. It may not work for files that require elevated permissions.
 - Very long file paths or names with special characters might cause issues.
 - If you modify the script, be careful not to introduce unintended behavior.
+
+*Important: The hash value of a file is determined by its content, not its name. This means that if you change only the file name, the hash value will stay the same. The hash will only change if the content of the file itself is modified.*
