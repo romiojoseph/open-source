@@ -14,9 +14,11 @@ for %%F in ("%searchDir%*.*") do (
     
     :: Skip the batch file itself
     if not "!fileName!"=="%~nx0" (
-        :: Calculate and display the hash
+        :: Calculate and display the hash with custom formatted timestamp
         echo Calculating hash for: !fileName!
-        powershell -Command "Get-FileHash -Path '!filePath!' -Algorithm SHA256 | Format-List"
+        for /f "usebackq tokens=*" %%A in (`powershell -Command "Get-FileHash -Path '!filePath!' -Algorithm SHA256 | Format-List; Get-Date -Format 'dd MMMM yyyy HH:mm:ss'"`) do (
+            echo %%A
+        )
         echo.
     )
 )
