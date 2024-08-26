@@ -1,5 +1,7 @@
 *Script created using Claude.*
 
+Windows might block the script from running. Just click 'More info' and then select 'Run anyway'.
+
 # File Hash Checker Script
 This Windows batch script automatically calculates SHA256 hashes for all files in its directory.
 
