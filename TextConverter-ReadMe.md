@@ -1,5 +1,3 @@
-**Text Transformer Script**
-
 *Script created using Claude and Meta AI.*
 
 Windows might block the script from running. Just click 'More info' and then select 'Run anyway'.
