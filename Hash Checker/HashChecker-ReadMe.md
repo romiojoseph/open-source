@@ -10,6 +10,7 @@ This Windows batch script automatically calculates SHA256 hashes for all files i
 2. Place it in the directory where you want to check file hashes.
 3. Double-click the `HashChecker.bat` file to run it.
 4. View the results in the command prompt window that opens.
+5. Press any key to save the hash check information to HashValue.txt. The latest data will be appended to the file each time the script runs.
 
 ## Requirements
 - Windows operating system
