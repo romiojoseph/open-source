@@ -12,9 +12,11 @@ set "tempFile=%temp%\hash_results_temp.txt"
 if exist "%tempFile%" del "%tempFile%"
 
 :: Add a separator with current date and time to the temp file
-echo. >> "%tempFile%"
-echo ===== Hash Check Run on %date% ===== >> "%tempFile%"
-echo. >> "%tempFile%"
+for /f "usebackq delims=" %%A in (`powershell -Command "Get-Date -Format 'dd MMMM yyyy'"`) do (
+    echo. >> "%tempFile%"
+    echo ===== Hash Check Run on %%A ===== >> "%tempFile%"
+    echo. >> "%tempFile%"
+)
 
 :: Loop through all files in the directory
 for %%F in ("%searchDir%*.*") do (
@@ -24,7 +26,7 @@ for %%F in ("%searchDir%*.*") do (
     :: Get just the filename with extension
     set "fileName=%%~nxF"
     
-    :: Skip the batch file itself and the HashValue.txt file
+    :: Skip the script file itself and the HashValue.txt file
     if /I not "!fileName!"=="%~nx0" if /I not "!fileName!"=="HashValue.txt" (
         :: Calculate and display the hash with custom formatted timestamp
         echo Calculating hash for: !fileName!
