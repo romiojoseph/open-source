@@ -1,0 +1,99 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  padding: 20px 20px 20px;
+  width: 480px;
+  min-height: 258px;
+  max-height: 480px;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #666666;
+  margin: 4px 0 16px;
+}
+
+textarea {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid #e1e1e1;
+  border-radius: 8px;
+  resize: vertical;
+  margin-bottom: 4px;
+  width: 100%;
+  min-height: 100px;
+  max-height: 360px;
+  box-sizing: border-box;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+}
+
+button {
+  background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 43.26%, #1d4ed8 100%);
+  box-shadow: inset 1px 1px 6px #60a5fa;
+  color: #ffffff; /* Original button text color */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 8px; /* Space above the Convert button */
+}
+
+#clearBtn {
+  background: none; /* No background */
+  color: #333333; /* Text color */
+  border: none; /* No border */
+  padding: 0; /* No padding */
+  font-size: 14px; /* Font size */
+  font-weight: 400; /* Font weight */
+  cursor: pointer; /* Pointer cursor */
+  margin-top: 16px; /* Space above the Clear button */
+  text-align: left; /* Align text to the left */
+  box-shadow: none !important;
+}
+
+button:hover {
+  background-color: #5e35e3; /* Hover color for Convert button */
+}
+
+button:active {
+  background-color: #4a27c7; /* Active color for Convert button */
+}
+
+.output {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 0px 0px 12px 0px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  overflow: hidden;
+  display: none;
+}
+
+.caption {
+  font-weight: 600;
+  color: #333333;
+}

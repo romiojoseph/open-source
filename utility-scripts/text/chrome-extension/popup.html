@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Case Converter</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>Text Case Converter</h1>
+  <p class="subtext">Convert your text to various styles!</p>
+  <textarea id="inputText" placeholder="Enter your text here"></textarea>
+  <div class="buttons">
+    <button id="transformBtn">Convert Text</button>
+    <button id="clearBtn">Clear data</button>
+  </div>
+  <div id="output" class="output"></div>
+  
+  <!-- Load scripts at the end of the body -->
+  <script src="transformations.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

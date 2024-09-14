@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Text Case Converter",
+  "version": "1.0",
+  "description": "A Chrome extension to transform text into various cases.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "24": "images/icon24.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "24": "images/icon24.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
