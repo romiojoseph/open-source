@@ -22,7 +22,7 @@ def resize_image(image_path, sizes, output_format):
 def main():
     image_path = input("Enter the image path: ")
     available_sizes = [
-        8, 16, 24, 32, 48, 64, 96, 128, 256, 512, 1024
+        8, 16, 24, 32, 40, 48, 64, 96, 128, 256, 512, 1024
     ]
     print("Available sizes:")
     for i, size in enumerate(available_sizes):
