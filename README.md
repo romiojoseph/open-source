@@ -25,12 +25,23 @@ Scripts are a series of instructions written in a programming language that auto
 **Some common examples of scripts include:**
 
 - Bash scripts for Linux system administration
-  
+
 - Python scripts for data analysis and machine learning
-  
+
 - JavaScript scripts for web development
-  
+
 - Batch scripts for Windows system administration (Windows might block the batch script from running. Just click 'More info' and then select 'Run anyway'.)
-  
 
 Feel free to explore the scripts shared here—I hope they become valuable resources that help you in your day-to-day tasks!
+
+
+
+### What is pip?
+
+pip is the package installer for Python. It allows you to easily install, update, and manage additional libraries and dependencies that are not part of the Python standard library.
+
+Think of pip like an app store for Python packages. Just as you'd use an app store to download and install apps on your phone, you use pip to download and install Python packages (like python-chess) that can enhance your Python experience.
+
+- Type `python -m ensurepip` and press Enter
+
+- If pip is already installed, you'll see a message saying it's already up-to-date
