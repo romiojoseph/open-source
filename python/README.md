@@ -15,3 +15,4 @@ However, these are built-in Python modules, so installation is not required.
 ## Usage
 - Run the script using Python: python script.py
 - The script will prompt you to save the results to a Markdown file. Enter 'y' to save or 'n' to discard.
+- Note that the output file will be saved to `E:/Code` by default; modify the `file_path` variable to change this location.
