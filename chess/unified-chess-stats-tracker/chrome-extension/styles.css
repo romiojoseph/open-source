@@ -1,0 +1,138 @@
+body {
+   width: 530px !important;
+   height: 100%;
+   max-height: 480px;
+   padding: 20px;
+   font-family: 'Inter', sans-serif;
+   color: #334155;
+   overflow: hidden;
+   margin-top: -8px;
+}
+
+h2 {
+   font-size: 20px;
+   font-weight: 700;
+   color: #1e293b;
+   margin-bottom: 8px;
+}
+
+h3 {
+    font-size: 18px; /* Adjust size as needed */
+    font-weight: 600; /* Semi-bold */
+    color: #1e293b; /* Dark color for headings */
+    margin-top: 32px; /* Space above the heading */
+    margin-bottom: 8px; /* Space below the heading */
+}
+
+.subtitle {
+   font-size: 16px;
+   line-height: 140%;
+   color: #64748b;
+   margin-top: 6px;
+}
+
+p {
+    font-size: 14px; /* Size for paragraphs */
+    line-height: 1.5; /* Line height for better spacing */
+    color: #334155; /* Color for paragraph text */
+    margin-top: 16px; /* Space above paragraphs */
+    margin-bottom: 16px; /* Space below paragraphs */
+}
+
+form {
+   margin-top: 20px;
+}
+
+label {
+   display: block;
+   margin-bottom: 16px;
+   font-size: 15px;
+   color: #1e293b;
+   font-weight: 500;
+}
+
+input[type="text"], input[type="radio"] {
+   width: 94%;
+   padding: 12px;
+   margin-top: -8px;
+   margin-bottom: 24px;
+   border: 2px solid #e2e8f0;
+   border-radius: 8px;
+   transition: border-color 0.3s ease, box-shadow 0.3s;
+   font-size: 14px;
+}
+
+input[type="text"]:focus {
+   border-color: #2563eb;
+   box-shadow: 0 0 4px rgba(37, 99, 235, 0.5);
+}
+
+input[type="radio"] {
+   width: auto;
+   margin-right: 5px;
+   margin-bottom: -4px;
+   display: inline-block;
+}
+
+button {
+   color: white;
+   background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 43.26%, #1d4ed8 100%);
+   box-shadow: 0 4px 8px rgba(60, 82, 117, 0.2);
+   border: none;
+   border-radius: 8px;
+   padding: 12px 24px;
+   cursor: pointer;
+   font-family: 'Inter', sans-serif;
+   font-size: 16px;
+   font-weight: 600;
+   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+   background-color: #4f46e5;
+   transform: translateY(-2px);
+}
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 12px;
+}
+
+th, td {
+   border: 1px solid #e2e8f0;
+   padding: 12px;
+   text-align: left;
+   font-size: 14px;
+   color: #334155;
+}
+
+th {
+   background-color: #f0f4f8; /* Light background for headers */
+   font-weight: 600; /* Bold headers */
+}
+
+#stats {
+    margin-top: 32px; /* Space above stats section */
+    font-size: 14px; /* Font size for stats section */
+    padding-bottom:32px; /* Padding below stats section */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 500px) {
+    body {
+      width: auto; /* Full width on smaller screens */
+      padding: 15px; /* Adjust padding */
+    }
+
+    h2 {
+      font-size: 20px; /* Larger heading on small screens */
+    }
+
+    button {
+      width: 100%; /* Full width buttons on small screens */
+      padding-top :12px; 
+      padding-bottom :12px; 
+      font-size :14px; 
+    }
+}

@@ -1,0 +1,35 @@
+{
+  "manifest_version": 3,
+  "name": "Unified Chess Stats Tracker",
+  "version": "1.0",
+  "description": "Compares chess statistics between Chess.com and Lichess.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.chess.com/*",
+    "https://lichess.org/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

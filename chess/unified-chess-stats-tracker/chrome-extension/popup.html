@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unified Chess Stats Tracker</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+</head>
+<body>
+<h2>Unified Chess Stats Tracker</h2>
+
+<p class="subtitle">
+    Track your wins, losses, draws, and total games across Chess.com and Lichess, including blitz, bullet, and rapid formats, with real-time combined stats in one simple extension.
+</p>
+
+<form id="statsForm">
+   <label>
+       <input type="radio" name="sameUser" value="yes" checked> Same username on both platforms
+   </label>
+   <label>
+       <input type="radio" name="sameUser" value="no"> Different usernames
+   </label>
+   <br>
+
+   <div id="usernameFields">
+       <label for="username">Username:</label>
+       <input type="text" id="username" name="username">
+   </div>
+
+   <div id="differentUsernameFields">
+       <label for="chessComUsername">Chess.com Username:</label>
+       <input type="text" id="chessComUsername" name="chessComUsername">
+       <br>
+       <label for="lichessUsername">Lichess Username:</label>
+       <input type="text" id="lichessUsername" name="lichessUsername">
+   </div>
+
+   <button type="submit">Submit</button>
+</form>
+
+<div id="stats"></div>
+
+<script src="background.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
