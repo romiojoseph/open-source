@@ -1,5 +1,7 @@
 *Script and chrome extension created using Perplexity and Mistral AI.*
 
+> Feel free to check out the code for this Chrome extension in the repository. The code is open, so you can review it and use it as you like. If you notice anything or have suggestions, let me know!
+
 # Unified chess stats tracker
 This project consists of a Python script and a Chrome extension that fetch and display chess statistics from both Chess.com and Lichess.org. The Python script fetches and displays statistics in the terminal, while the Chrome extension provides a user-friendly interface to view the same statistics.
 

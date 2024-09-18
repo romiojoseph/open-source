@@ -1,5 +1,7 @@
 *Scripts and chrome extension created using Mistral AI, Google AI Studio, Perplexity and Meta AI.*
 
+> Feel free to check out the code for this Chrome extension in the repository. The code is open, so you can review it and use it as you like. If you notice anything or have suggestions, let me know!
+
 # Text case converter
 This repository contains various scripts and a chrome extension for converting text into different cases. The scripts are written in different languages such as Batch Script (bat), Python, and JavaScript. The project includes a Chrome extension, a Telegram bot, and standalone scripts for terminal use.
 
