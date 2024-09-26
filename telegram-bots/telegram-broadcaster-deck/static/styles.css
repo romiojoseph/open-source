@@ -1,0 +1,372 @@
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Container for the main content */
+.container {
+    max-width: 1024px;
+    margin: 24px auto;
+    padding: 32px; 
+    background-color: #fff;
+    border-radius: 24px;
+    box-shadow: 0 0 12px #f1f5f9;
+}
+
+/* Main Heading */
+h1 {
+    text-align: left;
+    margin: 0 0 8px 0;
+    color: #020617;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 130%;
+}
+
+/* Subtitle */
+.subtitle {
+    text-align: left;
+    margin: 0 0 8px 0;
+    color: #475569;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 145%;
+}
+
+/* Form Group Styles */
+.form-group {
+    margin: 12px 0px; /* Top and bottom margin */
+    flex: 1; /* Allow select elements to grow and fill available space */
+}
+
+/* Form Labels */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 125%;
+}
+
+/* Form Inputs (text fields, selects) */
+.form-control {
+    position: relative; /* Position relative for pseudo-elements */
+    width: 100%; /* Full width input */
+    height: 52px;
+    border-radius: 12px;
+    font-size: 16px;
+    background: #ffffff;
+    border: 2px solid #f1f5f9;
+    font-family: 'Inter', sans-serif;  /* Apply Inter font */
+    box-sizing: border-box; /* Include border in the element's total width and height */
+    padding: 16px;
+}
+
+/* Form Input Focus Styles */
+.form-control:focus,
+.form-control-file:focus {
+    border-color: #80bdff; /* Blue border on focus */
+    outline: 0; /* Remove default outline */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Blue shadow on focus */
+}
+
+/* Primary Button */
+.btn-primary {
+    display: block; /* Make button a block-level element */
+    width: 100%; /* Full width button */
+    height: 64px;
+    padding: 10px 20px; /* Vertical and horizontal padding */
+    background: linear-gradient(135deg, #3b82f6 0%, #4f46e5 43.26%, #1d4ed8 100%); /* Gradient */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 12px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor on hover */
+    font-size: 18px; /* Font size */
+    font-weight: 600; /* Font weight */
+    transition: 0.6s ease; /* Smooth background transition */
+    margin-top: 16px;
+}
+
+/* Optional: Add a hover effect */
+.btn-primary:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 43.26%, #1d4ed8 100%);
+    border-radius: 18px; /* Rounded corners */
+    transition: 0.6s ease; /* Smooth background transition */
+}
+
+/* Secondary Button */
+.btn-secondary {
+    display: block;
+    border: 2px solid #f1f5f9;
+    width: auto;
+    height: 38px;
+    padding: 8px 16px;
+    background-color: #f8fafc;
+    color: #475569;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+/* Secondary Button Hover */
+.btn-secondary:hover {
+    background-color: #e2e8f0; /* Darker gray on hover */
+    border: 2px solid #cbd5e1;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* Alert Messages (success, error) */
+.alert {
+    padding: 10px 16px; /* Padding inside the alert */
+    margin-bottom: 16px; /* Bottom margin */
+    margin-top: 8px;
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+/* Success Alert */
+.alert-success {
+    background-color: #d4edda; /* Light green background */
+    color: #064e3b; /* Dark green text */
+    border-color: #c3e6cb; /* Green border */
+}
+
+/* Error Alert */
+.alert-error {
+    background-color: #f8d7da; /* Light red background */
+    color: #7f1d1d; /* Dark red text */
+    border-color: #f5c6cb; /* Red border */
+}
+
+
+/* Info Icon and Tooltip Styles */
+.tooltip {
+    display: none; /* Hide by default */
+    position: absolute; /* Position it where you want */
+    background-color: #fff; /* Background color */
+    padding: 6px 12px; /* Padding for tooltip */
+    border-radius: 6px;
+    z-index: 10; /* Ensure it appears above other elements */
+    box-shadow: 0 0 12px #e2e8f0; /* Subtle shadow */
+    font-size: 13px;
+    width: 380px; /* or 80vw, 50% */
+}
+
+.formatting-tips,
+.form-text-muted {
+    text-decoration: dashed; /* Underline the text */
+    color: #64748b; /* Change this color as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.formatting-tips:hover + .tooltip {
+    display: block; /* Show the tooltip when hovering over the link */
+}
+
+.formatting-tips:hover {
+    color: #0056b3; /* Darker shade on hover for better visibility */
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hide modal by default */
+    position: fixed; /* Position modal fixed */
+    z-index: 1000; /* Ensure modal is on top */
+    left: 0; /* Full width */
+    top: 0; /* Full height */
+    width: 100%; 
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+}
+
+.modal-content {
+    background-color: #ffffff; /* White background */
+    margin: 4% auto; /* Center modal vertically and horizontally */
+    padding: 24px; /* Padding inside the modal */
+    width: 70%; /* Modal width */
+    max-width: 600px; /* Maximum modal width */
+    border-radius: 24px; /* Rounded corners */
+}
+
+.close-button {
+    color: #94a3b8; /* Light gray color */
+    float: right; /* Float to the right */
+    font-size: 24px; /* Font size */
+    font-weight: medium; /* Bold text */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black; /* Black color on hover/focus */
+    text-decoration: none; /* Remove underline */
+}
+
+.channel-info {
+    margin-top: 32px; /* Top margin */
+    padding: 24px; /* Padding inside the channel info */
+    background-color: #f8fafc; /* Light gray background */
+    border: 2px dotted #f1f5f9; /* Gray border */
+    border-radius: 12px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+}
+
+.text-container {
+    width: 625px;
+    text-align: left;  /* Align text to the left */
+}
+
+button.configure-button {
+    margin-left: auto;
+}
+
+/* Style for text areas */
+textarea.form-control {
+    max-width: 100%;  /* Ensures text area does not exceed the container width */
+    height: 128px;    /* Set a fixed height */
+    resize: vertical;  /* Allow vertical resizing only */
+    padding: 16px;
+    border: 2px solid #f1f5f9;
+    box-sizing: border-box; /* Include border in the element's total width and height */
+    font-family: 'Inter', sans-serif;  /* Apply Inter font */
+}
+
+/* Style for select dropdowns */
+select.form-control {
+    width: 100%;      /* Make dropdowns full width */
+    height: 52px;     /* Set a consistent height */
+    padding: 8px 16px; /* Maintain padding for dropdown */
+}
+
+input::placeholder {
+    color: #94A3B8; /* Light gray color for placeholder */
+    opacity: 1; /* Makes the placeholder fully opaque */
+    font-family: 'Inter', sans-serif; /* Font family */
+}
+
+.config-medium,
+.button-property {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space elements evenly */
+    gap: 24px;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center; /* Vertically center align if needed */
+    gap: 24px;
+    padding: 8px 0px;
+}
+
+.radio-group label {
+    margin-right: 15px; /* Adjust spacing between items */
+    font-size: 16px;
+    font-weight: 400;
+    color: #0f172a;
+}
+
+.attachment-property {
+    display: flex;
+    align-items: center; /* Vertically centers items */
+    gap: 24px;
+}
+
+.configure-chat {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Align items to fill the container */
+    justify-content: flex-start; /* Start from the top */
+}
+
+.poll-section,
+.quiz-options {
+    display: none;
+}
+
+.poll-section.show {
+    display: block;
+}
+
+.tooltip-trigger {
+    position: relative; /* Required for absolute positioning of the tooltip */
+    display: inline-block; /* Makes the trigger behave like an inline element */
+}
+
+.tooltip-trigger:hover .tooltip {
+    display: block; /* Show the tooltip on hover */
+}
+
+.poll-property {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space elements evenly */
+    gap: none;
+    flex-direction: column;
+}
+
+.remove-poll-option-btn[type="button"] {
+    padding: 8px 16px;
+    background-color: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    font-size: 12px;
+    font-weight: 400;
+    border-radius: 6px;
+    margin: 8px 0px 12px 0px;
+}
+
+.remove-poll-option-btn[type="button"]:hover {
+    background-color: #fecaca;
+    color: #991b1b;
+}
+
+
+.add-poll-option-btn[type="button"] {
+    display: block;
+    border: 2px solid #f1f5f9;
+    width: auto;
+    height: 38px;
+    padding: 4px 12px;
+    background-color: #f8fafc;
+    color: #475569;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+.poll-option{
+    padding: 4px 0px 4px 0px;
+}
+
+.add-poll-option-btn[type="button"]:hover {
+    background-color: #e2e8f0;
+    border: 2px solid #cbd5e1;
+    color: #1e293b;
+    font-weight: 500;
+}

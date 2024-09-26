@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram broadcaster deck</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/png">
+    <meta name="description" content="Effortlessly manage Telegram bots and channels with this local tool.">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+    <!-- Add Google Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header-container">
+            <div class="text-container">
+                <h1>Telegram broadcaster deck</h1>
+                <p class="subtitle">Manage multiple Telegram bots and channels. Streamline communication.</p>
+            </div>
+            <button class="btn btn-secondary configure-button" onclick="openModal()">Get Channel Chat ID</button>
+        </div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="radio-group">
+                    <label for="send_message">
+                        <input type="radio" id="send_message" name="message_type" value="message" checked>
+                        Send a message
+                    </label>
+                    <label for="create_poll">
+                        <input type="radio" id="create_poll" name="message_type" value="poll">
+                        Create a poll
+                    </label>
+                </div>
+            </div>
+            <div id="send_message_section">
+                <div class="config-medium">
+                    <div class="form-group">
+                        <label for="selected_bot">Pick your bot (Must be admin)</label>
+                        <select class="form-control" id="selected_bot" name="selected_bot" required>
+                            {% for bot_name in bot_tokens.keys() %}
+                                <option value="{{ bot_name }}">{{ bot_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="selected_channel">To which channel?</label>
+                        <select class="form-control" id="selected_channel" name="selected_channel" required>
+                            {% for channel_name in channel_ids.keys() %}
+                                <option value="{{ channel_name }}">{{ channel_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="radio-group">
+                        <label for="markdown_mode">
+                            <input type="radio" id="markdown_mode" name="parse_mode" value="Markdown" checked>
+                            Markdown
+                        </label>
+                        <label for="html_mode">
+                            <input type="radio" id="html_mode" name="parse_mode" value="HTML">
+                            HTML
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message_text">Draft your message</label>
+                    <textarea class="form-control" id="message_text" name="message_text" rows="5" placeholder="Type your message here..."></textarea>
+                    <a href="https://www.perplexity.ai/search/telegram-supported-markdown-fo-kPujVzSDQOevxSpuLRLK3A" class="formatting-tips" target="_blank" rel="noopener">Formatting Tips</a>
+                    <div class="tooltip">
+                        Refer to this guide for a comprehensive list of Markdown syntax supported by Telegram.
+                    </div>
+                </div>
+                <div class="button-property">
+                    <div class="form-group">
+                        <label for="button_name">Button name (optional, leave blank if not needed):</label>
+                        <input type="text" class="form-control" id="button_name" name="button_name" placeholder="Enter button name">
+                    </div>
+                    <div class="form-group">
+                        <label for="button_url">Button URL</label>
+                        <input type="text" class="form-control" id="button_url" name="button_url" placeholder="Enter button URL">
+                    </div>
+                </div>
+                <div class="attachment-property">
+                    <div class="form-group">
+                        <label for="file">Attach file (optional)</label>
+                        <input type="file" class="form-control-file" id="file" name="file" onchange="detectFileType()">
+                        <br>
+                        <span class="tooltip-trigger">
+                            <small class="form-text-muted">Size and limitations</small>
+                            <div class="tooltip">
+                                <p><strong>Supported:</strong> Max file size 20MB and the following file types .jpg, .jpeg, .png, .gif, .pdf, .docx, .doc, .xlsx, .mp3, .wav, .ogg, .mp4, .mkv, .csv, .txt, .zip, .7z</p>
+                                <p><strong>Troubleshooting:</strong> If you see a "Timed out" error, wait 2 minutes before retrying.</p>
+                                <p><strong>Note:</strong> For larger files, use a file-sharing service like <a href="https://wetransfer.com/" target="_blank" rel="noopener">WeTransfer</a> and use the button option to share the link.</p>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="form-group">
+                        <label for="file_type">Send file as</label>
+                        <select class="form-control" id="file_type" name="file_type">
+                            <option value="attachment">Attachment</option>
+                            <option value="image">Image</option>
+                            <option value="video">Video</option>
+                            <option value="audio">Audio</option>
+                            <option value="document">Document</option>
+                            <option value="archive">Archive</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div id="create_poll_section" class="poll-section">
+                <div class="config-medium">
+                    <div class="form-group">
+                        <label id="poll-bot-label" for="poll_selected_bot">Pick your bot (Must be admin)</label>
+                        <select class="form-control" id="poll_selected_bot" name="poll_selected_bot" required aria-labelledby="poll-bot-label">
+                            {% for bot_name in bot_tokens.keys() %}
+                                <option value="{{ bot_name }}">{{ bot_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label id="poll-channel-label" for="poll_selected_channel">To which channel?</label>
+                        <select class="form-control" id="poll_selected_channel" name="poll_selected_channel" required aria-labelledby="poll-channel-label">
+                            {% for channel_name in channel_ids.keys() %}
+                                <option value="{{ channel_name }}">{{ channel_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Poll Type:</label>
+                        <div class="radio-group">
+                            <label for="regular_poll">
+                                <input type="radio" id="regular_poll" name="poll_type" value="regular" checked> Regular
+                            </label>
+                            <label for="quiz_poll">
+                                <input type="radio" id="quiz_poll" name="poll_type" value="quiz"> Quiz
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="poll-property">
+                    <div class="form-group">
+                        <label id="poll-question-label" for="poll_question">Poll question</label>
+                        <input type="text" class="form-control" id="poll_question" name="poll_question" placeholder="Enter poll question" aria-labelledby="poll-question-label">
+                    </div>
+                    <div class="form-group" id="poll-options-container">
+                        <label id="poll-options-label">Poll options</label>
+                        <button type="button" class="btn btn-secondary add-poll-option-btn" onclick="addPollOption()">Add option</button> 
+                    </div>
+                    <div class="config-medium">
+                        <div class="form-group">
+                            <label for="close_date">Duration</label>
+                            <select class="form-control" id="close_date" name="close_date">
+                                <option value="0" selected>Indefinite</option> 
+                                <option value="30">30 seconds</option>
+                                <option value="60">1 minute</option>
+                                <option value="120">2 minutes</option>
+                                <option value="180">3 minutes</option>
+                                <option value="240">4 minutes</option>
+                                <option value="300">5 minutes</option>
+                                <option value="360">6 minutes</option>
+                                <option value="420">7 minutes</option>
+                                <option value="480">8 minutes</option>
+                                <option value="540">9 minutes</option>
+                                <option value="600">10 minutes</option>
+                            </select>
+                        </div>
+                        <div class="form-group quiz-options"> 
+                            <label for="correct_option_id">Correct Option:</label>
+                            <select class="form-control" id="correct_option_id" name="correct_option_id">
+                                <option value="">Select Correct Option</option>
+                            </select>
+                        </div>
+                        <div class="radio-group">
+                            <label for="multiple_answers">
+                                <input type="checkbox" id="multiple_answers" name="allows_multiple_answers"> Multiple answers?
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group quiz-options">
+                        <label for="explanation">Explanation:</label>
+                        <textarea class="form-control" id="explanation" name="explanation"></textarea>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Send your message</button>
+        </form>
+    </div>
+    <div id="configureModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">×</span>
+            <h2>Get your Telegram Channel Chat ID</h2>
+            <form id="configureForm">
+                <div class="configure-chat">
+                    <div class="form-group">
+                        <label for="modal_selected_bot">Pick your bot (Must be admin)</label>
+                        <select class="form-control" id="modal_selected_bot" name="selected_bot" required>
+                            {% for bot_name in bot_tokens.keys() %}
+                                <option value="{{ bot_name }}">{{ bot_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="modal_selected_channel_username">Select the broadcasting channel</label>
+                        <select class="form-control" id="modal_selected_channel_username" name="selected_channel_username" required>
+                            {% for channel_name in channel_usernames.keys() %}
+                                <option value="{{ channel_name }}">{{ channel_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-primary" onclick="getChannelId()">Send a test message</button>
+            </form>
+            <br>
+            <p>You'll get your Channel Chat ID after you send a test message.</p>
+            <div id="channelInfo" class="channel-info"></div>
+        </div>
+    </div>
+
+    <script>
+        // ... (Your script.js code will be included here) ...
+    </script>
+</body>
+</html>
