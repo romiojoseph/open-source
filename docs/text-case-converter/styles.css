@@ -221,3 +221,80 @@ body {
     color: #1f2937;
     border-color: #cbd5e1;
   }
+
+  /* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+      padding: 16px;
+  }
+
+  h1 {
+      font-size: 20px;
+  }
+
+  .subtext {
+      font-size: 14px;
+  }
+
+  .tab-item {
+      font-size: 14px;
+      padding: 10px 20px;
+  }
+
+  textarea {
+      min-height: 200px;
+      padding: 16px;
+      font-size: 14px;
+  }
+
+  #output {
+      padding: 16px;
+  }
+
+  #outputText {
+      font-size: 18px;
+  }
+
+  #copyBtn, #clearBtn {
+      font-size: 14px;
+      padding: 10px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+      padding: 8px;
+  }
+
+  h1 {
+      font-size: 16px;
+  }
+
+  .subtext {
+      font-size: 12px;
+  }
+
+  .tab-item {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+
+  textarea {
+      min-height: 150px;
+      padding: 12px;
+      font-size: 14px;
+  }
+
+  #output {
+      padding: 14px;
+  }
+
+  #outputText {
+      font-size: 16px;
+  }
+
+  #copyBtn, #clearBtn {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
