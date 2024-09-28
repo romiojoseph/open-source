@@ -1,0 +1,223 @@
+body {
+    font-family: "Inter", system-ui;
+    font-optical-sizing: auto;
+    background-color: #ffffff;
+  }
+  
+  .container {
+    max-width: 1024px;
+    margin: 24px auto;
+  }
+  
+  h1 {
+    font-size: 24px;
+    line-height: 1;
+    color: #0f172a;
+    margin: 0;
+  }
+  
+  .subtext {
+    color: #475569;
+    line-height: 1;
+    margin-top: 0;
+  }
+  
+  .main-head {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  /* Tabs Styling */
+  .tabs {
+    margin: 16px 0;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: visible;
+  }
+  
+  .tab-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 6px;
+    overflow: visible;
+  }
+  
+  .tab-item {
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #e2e8f0;
+    font-size: 13px;
+    line-height: 1;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .tab-item:hover {
+    background-color: #cbd5e0;
+    color: #4a5568;
+  }
+  
+  .tab-item:focus {
+    border: 2px solid #7148fc;
+    outline: none;
+  }
+  
+  .tab-item.active {
+    background-color: #7148fc;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .tab-item.active::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #ede9fe;
+    border-radius: 8px;
+  }
+  
+  .tab-content {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+  }
+  
+  #description {
+    margin-bottom: 24px;
+    font-size: 14px;
+    line-height: 145%;
+    color: #64748b;
+  }
+  
+  /* Text Area and Buttons */
+  textarea {
+    width: 100%;
+    min-height: 256px;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 2px solid #e2e8f0;
+    resize: vertical;
+    border-radius: 8px;
+    font-family: "Inter", system-ui;
+    font-size: 16px;
+    line-height: 150%;
+    transition: border-color 0.3s ease;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  
+  textarea:hover {
+    border-color: #a0aec0;
+  }
+  
+  textarea:focus {
+    border-color: #7148fc;
+    outline: none;
+  }
+  
+  textarea::selection {
+    background-color: #7148fc;
+    color: #fff;
+  }
+  
+  #output {
+    margin-top: 20px;
+    min-height: 100px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    flex-direction: column-reverse;
+    border-radius: 8px;
+    color: #0f172a;
+    border: 1px solid #e7e5e4;
+    background-color: #f5f5f4;
+    padding: 24px;
+  }
+
+  #output:hover {
+    box-shadow: 0 0 32px 0 #f5f5f4;
+    border-radius: 16px;
+  }
+  
+  #outputText {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: "Inter", system-ui;
+    font-size: 18px;
+    line-height: 150%;
+  }
+  
+  #copyBtn {
+    color: #1c1917;
+    background-color: #e7e5e4;
+    cursor: pointer;
+    border: #d6d3d1;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    align-self: flex-start;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  #copyBtn:hover {
+    background-color: #fafaf9;
+    border: 2px solid #d6d3d1;
+    outline: 2px solid#d6d3d1;
+    outline-offset: -2px;
+  }
+
+  #clearBtn {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    line-height: 1;
+    padding: 12px 24px;
+    color: #475569;
+    margin-top: 12px;
+    margin-bottom: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  #clearBtn:hover {
+    background-color: #f1f5f9;
+    color: #1e293b;
+    border-color: #cbd5e1;
+  }
+  
+  #clearBtn:focus {
+    border-color: #94a3b8;
+    outline: none;
+  }
+  
+  #clearBtn:active {
+    background-color: #e2e8f0;
+    color: #1f2937;
+    border-color: #cbd5e1;
+  }
