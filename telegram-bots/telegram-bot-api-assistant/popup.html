@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Telegram Bot API Assistant</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title-section">
+                <h1 class="title-head">Telegram Bot API Assistant</h1>
+                <p class="subtitle">
+                    Easily interact with the 
+                    <a href="https://core.telegram.org/bots/api" target="_blank" rel="noopener noreferrer" class="hyperlink">Telegram Bot API</a> 
+                    directly from your browser. Send messages, manage webhooks, get updates, and more.
+                </p>                            
+            </div>
+            <img id="openInNewWindowIcon" src="images/pop-out-window.png" alt="Open in New Window" title="Open in new window" class="open-in-new-window-icon">
+        </div>
+
+        <label for="action">What would you like to do?</label>
+        <select id="action" class="dropdown">
+            <option value="">Select an action</option>
+            <option value="getUpdates">Get updates</option>
+            <option value="setWebhook">Set webhook</option>
+            <option value="deleteWebhook">Delete webhook</option>
+            <option value="getMe">Get Me</option>
+            <option value="sendMessage">Send a message</option>
+            <option value="sendPhoto">Send photo</option>
+            <option value="sendDocument">Send document</option>
+            <option value="sendAudio">Send audio</option>
+            <option value="sendVideo">Send video</option>
+            <option value="sendSticker">Send sticker</option>
+            <option value="forwardMessage">Forward message</option>
+            <option value="editMessageText">Edit message text</option>
+            <option value="getChatMembersCount">Get chat members count</option>
+            <option value="kickChatMember">Kick chat member</option>
+            <option value="getChatMember">Get chat member</option>
+            <option value="banChatMember">Ban chat member</option>
+            <option value="unbanChatMember">Unban chat member</option>
+            <option value="getGroupMembers">Get group members</option>
+            <option value="addGroupMember">Add group member</option>
+            <option value="removeGroupMember">Remove group member</option>
+            <option value="deleteMessage">Delete message</option>
+            <option value="pinMessage">Pin message</option>
+            <option value="unpinMessage">Unpin message</option>
+            <option value="getWebhookInfo">Get webhook info</option>
+            <option value="logOut">Log out</option>
+            <option value="close">Close</option>
+        </select>
+
+        <div id="description"></div>
+
+        <div id="inputFields"></div>
+
+        <button id="submitBtn" class="submit-button" disabled>Submit</button>
+
+        <p class="subtle-text">Upon clicking the button, the relevant data will be displayed below.</p>
+
+        <pre id="output" class="output-area"></pre>
+
+        <div class="accordion">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>&#8597;</span> General info
+              </div>
+              <div class="accordion-content subtle-text">
+                <ul>
+                  <li>ok: Indicates success/enabled/supported/yes (true) or failure/disabled/not supported/no (false).</li>
+                  <li>result: Array of group member objects.</li>
+                  <li>"result" (blank): The action was executed successfully, but no data was returned.</li>
+                  <li>user: Object containing user information:
+                    <ul>
+                      <li>id: Unique user ID.</li>
+                      <li>is_bot: true if the user is a bot.</li>
+                    </ul>
+                  </li>
+                  <li>date: Dates are represented in Unix time format. To convert, visit <a href="https://www.unixtimestamp.com/" target="_blank" rel="noopener noreferrer">Unix Timestamp Converter</a>.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>&#8597;</span> HTTP status codes
+              </div>
+              <div class="accordion-content subtle-text">
+                <ul>
+                  <li>200: OK (Request successful)</li>
+                  <li>400: Bad Request (Invalid request)</li>
+                  <li>401: Unauthorized (Invalid or missing bot token)</li>
+                  <li>403: Forbidden (Bot lacks permission)</li>
+                  <li>404: Not Found (Resource not found)</li>
+                  <li>409: Conflict (Resource already exists)</li>
+                  <li>429: Too Many Requests (Rate limit exceeded)</li>
+                  <li>500: Internal Server Error (Telegram server error)</li>
+                  <li>502: Bad Gateway (Telegram server error)</li>
+                  <li>503: Service Unavailable (Telegram server maintenance)</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>&#8597;</span> Error codes
+              </div>
+              <div class="accordion-content subtle-text">
+                <ul>
+                  <li>1: Invalid request</li>
+                  <li>2: API method not found</li>
+                  <li>3: Invalid bot token</li>
+                  <li>4: Bot lacks permission</li>
+                  <li>5: Resource not found</li>
+                  <li>100: Generic error</li>
+                  <li>101: Invalid test mode</li>
+                  <li>102: Invalid JSON</li>
+                  <li>103: Invalid method</li>
+                  <li>104: Invalid format</li>
+                  <li>105: Invalid user ID</li>
+                  <li>106: Invalid chat ID</li>
+                  <li>107: Invalid message ID</li>
+                  <li>108: Invalid file ID</li>
+                  <li>400: Bad request</li>
+                  <li>401: Invalid bot token</li>
+                  <li>402: Bot token expired</li>
+                </ul>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>&#8597;</span> Additional error messages
+              </div>
+              <div class="accordion-content subtle-text">
+                <ul>
+                  <li>Too Long: Message exceeds maximum length</li>
+                  <li>Invalid Request: Request is invalid</li>
+                  <li>Invalid Bot Token: Bot token is invalid</li>
+                  <li>Bot is Blocked: Bot is blocked</li>
+                  <li>Bot was Blocked: Bot was previously blocked</li>
+                  <li>Chat not Found: Chat does not exist</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

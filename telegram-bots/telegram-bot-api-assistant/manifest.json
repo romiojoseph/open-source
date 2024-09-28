@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Telegram Bot API Assistant",
+  "version": "1.0", 
+  "description": "Easily interact with the Telegram Bot API directly from your browser. Send messages, manage webhooks, get updates, and more.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "windows"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/*"],
+      "matches": ["https://api.telegram.org/*"] 
+    }
+  ],
+  "content_security_policy": {
+    "script-src": "'self'",
+    "object-src": "'self'" 
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
