@@ -33,7 +33,7 @@ body {
     margin: 16px 0;
     box-sizing: border-box;
     width: 100%;
-    overflow: visible;
+    overflow: hidden;
   }
   
   .tab-list {
@@ -41,12 +41,17 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: space-between;
-    flex-direction: row;
+    justify-content: flex-start;
     gap: 6px;
-    overflow: visible;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
   
+  .tab-list::-webkit-scrollbar {
+    display: none;
+}
+
   .tab-item {
     border-radius: 8px;
     cursor: pointer;
@@ -57,6 +62,7 @@ body {
     display: flex;
     align-items: center;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    flex-shrink: 0;
   }
   
   .tab-item:hover {
