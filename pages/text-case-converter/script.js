@@ -10,15 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const descriptions = {
     original: "The original text as entered. This is useful for comparing how transformations alter the initial input.",
     
-    uppercase: "Converts all letters to uppercase (e.g., 'HELLO WORLD'). This format is often used for emphasis in headings, titles, or alerts.",
+    uppercase: "Converts all letters to uppercase. This format is often used for emphasis in headings, titles, or alerts.",
     
-    lowercase: "Converts all letters to lowercase (e.g., 'hello world'). This style is commonly used in email addresses and URLs for consistency.",
+    lowercase: "Converts all letters to lowercase. This style is commonly used in email addresses and URLs for consistency.",
     
-    titlecase: "Combined title case capitalizes the first letter of each word, except for certain small words. Ideal for titles and headings in articles or books, it excludes words like: a, an, the, and, but, or, nor, for, so, yet, in, on, at, by, with, from, under, above, over, through, during, including, he, she, it, they, them, their, its, is, am, are, was, were, be, been, being, as, to, into, onto, of, who, whom, whose, which, after, before, until, since, between, among, throughout, within, without.",
+    titlecase: "Ideal for titles and headings in articles or books, it excludes words like: a, an, the, and, but, or, nor, for, so, yet, in, on, at, by, with, from, under, above, over, through, during, including, he, she, it, they, them, their, its, is, am, are, was, were, be, been, being, as, to, into, onto, of, who, whom, whose, which, after, before, until, since, between, among, throughout, within, without.",
     
-    absoluteTitleCase: "Capitalizes the first letter of every word (e.g., 'The Quick Brown Fox Jumps Over The Lazy Dog'). Useful for formal titles and names where every word is significant.",
+    absoluteTitleCase: "Capitalizes the first letter of every word. Useful for formal titles and names where every word is significant.",
     
-    sentencecase: "Capitalizes the first letter of the first word in each sentence (e.g., 'This is a sentence. This is another.'). Great for writing paragraphs or body text where clarity is essential.",
+    sentencecase: "Capitalizes the first letter of the first word in each sentence. Great for writing paragraphs or body text where clarity is essential.",
     
     camelcase: "Converts text to camel case (e.g., 'camelCase'). Commonly used in programming for variable names and function identifiers, making them easy to read.",
     
@@ -72,12 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
       outputText.textContent = transformedText;
       description.textContent = descriptions[targetPaneId];
 
-      // Show/hide output based on selected tab
-      if (targetPaneId === 'original') {
-          output.style.display = 'none';
-      } else {
-          output.style.display = 'flex';
-      }
+      // Show output since both conditions are the same
+      output.style.display = 'flex';
   }
 
   // Event listeners for tabs
@@ -94,19 +90,21 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   });
 
-  // Event listener for clear button
-  clearBtn.addEventListener('click', () => {
-      inputText.value = '';
-      outputText.textContent = '';
-      output.style.display = 'none';
-      description.textContent = '';
+    // Event listener for clear button
+    clearBtn.addEventListener('click', () => {
+        inputText.value = '';
+        outputText.textContent = '';
+        output.style.display = 'none';
 
-      // Reset tabs to "Original"
-      tabItems.forEach(tab => tab.classList.remove('active'));
-      tabPanes.forEach(pane => pane.classList.remove('active'));
-      tabItems[0].classList.add('active'); // Set "Original" as active
-      document.getElementById('original').classList.add('active'); // Show "Original" content
-  });
+        // **FIX:** Reset description to "Original"
+        description.textContent = descriptions['original']; 
+
+        // Reset tabs to "Original"
+        tabItems.forEach(tab => tab.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+        tabItems[0].classList.add('active'); // Set "Original" as active
+        document.getElementById('original').classList.add('active'); // Show "Original" content
+    });
 
   // Event listener for copy button
   copyBtn.addEventListener('click', () => {

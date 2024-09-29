@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Case Converter</title>
+    <meta name="title" content="Text Case Converter">
+    <meta name="description" content="Free online text case converter. Convert text to uppercase, lowercase, title case, sentence case, and more.">
+    
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/png">
+
+    <!-- Social Image -->
+    <meta property="og:image" content="images/social-image.avif">
+
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="main-head">
+                <h1 class="h1 title">Text Case Converter</h1>
+                <p class="p-lg subtext">Convert your text to different styles!</p>
+            </div>
+
+            <div class="tabs">
+                <ul class="tab-list">
+                    <li class="tab-item active label-md" data-tab="original">Original</li>
+                    <li class="tab-item p-md" data-tab="uppercase">Upper</li>
+                    <li class="tab-item p-md" data-tab="lowercase">Lower</li>
+                    <li class="tab-item p-md" data-tab="titlecase">Title</li>
+                    <li class="tab-item p-md" data-tab="absoluteTitleCase">Absolute Title</li>
+                    <li class="tab-item p-md" data-tab="sentencecase">Sentence</li>
+                    <li class="tab-item p-md" data-tab="camelcase">Camel</li>
+                    <li class="tab-item p-md" data-tab="pascalcase">Pascal</li>
+                    <li class="tab-item p-md" data-tab="snakecase">Snake</li>
+                    <li class="tab-item p-md" data-tab="kebabcase">Kebab</li>
+                </ul>
+
+                <div id="original" class="tab-pane active"></div>
+                <div id="uppercase" class="tab-pane"></div>
+                <div id="lowercase" class="tab-pane"></div>
+                <div id="titlecase" class="tab-pane"></div>
+                <div id="absoluteTitleCase" class="tab-pane"></div>
+                <div id="sentencecase" class="tab-pane"></div>
+                <div id="camelcase" class="tab-pane"></div>
+                <div id="pascalcase" class="tab-pane"></div>
+                <div id="snakecase" class="tab-pane"></div>
+                <div id="kebabcase" class="tab-pane"></div>
+            </div>
+
+            <div id="description"></div>
+            <textarea id="inputText" placeholder="Just paste or type your text, then click on the style you want..."></textarea>
+            <button id="clearBtn">Clear data</button>
+
+            <div id="output">
+                <button id="copyBtn">Copy to clipboard</button>
+                <div id="outputText"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-left">
+          Published in GitHub Pages. Checkout <a href="https://github.com/romiojoseph/open-source-scripts" target="_blank" rel="noopener noreferrer">other tools</a>.
+        </div>
+        <div class="footer-right">
+          Created by <a href="https://romio.framer.website/" target="_blank" rel="noopener noreferrer">Romio</a>
+        </div>
+    </footer>
+
+    <script src="transformations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
