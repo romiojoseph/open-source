@@ -233,7 +233,7 @@ textarea::selection {
 }
 
 #output {
-  margin-top: 20px;
+  margin-top: 8px;
   min-height: 100px;
   width: 100%;
   box-sizing: border-box;
@@ -317,7 +317,7 @@ footer {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 24px 0px;
+  padding: 24px 20px;
   background-color: var(--neutral-color-white);
   border-top: 1px dotted var(--neutral-color-light-gray);
   font-size: 14px;
