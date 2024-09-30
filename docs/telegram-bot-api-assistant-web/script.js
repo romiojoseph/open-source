@@ -239,13 +239,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
         try {
             const response = await fetch(url, { method });
-            if (!response.ok) throw new Error(`Error ${response.status}: ${response.statusText}`);
+            if (!response.ok) {
+                const errorText = await response.text(); 
+                throw new Error(`Error ${response.status}: ${errorText}`);
+            }
     
             const data = await response.json();
     
             let outputText = '';
     
-            // Helper function to format key-value pairs (left-aligned)
             function formatKeyValuePairs(obj, indent = '') {
                 let formattedText = '';
     
@@ -253,9 +255,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     const value = obj[key];
     
                     if (typeof value === 'object') {
-                        formattedText += `\n${indent}${key}:\n`; // Add a line break before the key
+                        formattedText += `\n${indent}${key}:\n`; 
                         formattedText += formatKeyValuePairs(value, indent + '  ');
-                        formattedText += '\n'; // Add a line break after the nested object
+                        formattedText += '\n'; 
                     } else {
                         formattedText += `${indent}${key}:  ${value}\n`;
                     }
@@ -263,8 +265,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return formattedText;
             }
     
-            // **Instead of the switch statement, use this:**
-            outputText = formatKeyValuePairs(data); // Format the entire JSON response
+            outputText = formatKeyValuePairs(data);
     
             output.textContent = outputText;
         } catch (error) {
