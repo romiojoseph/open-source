@@ -1,0 +1,188 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.container {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+h1 {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 700;
+  font-optical-sizing: auto;
+  text-align: left;
+  margin: 0;
+  color: #0f172a;
+}
+
+h3 {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  margin-bottom: 12px;
+  margin-top: 32px;
+}
+
+p {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+  font-optical-sizing: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  table-layout: auto;
+}
+
+th, td {
+  border: 1px solid #e2e8f0;
+  padding: 12px;
+  text-align: left;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-optical-sizing: auto;
+  color: #334155;
+}
+
+.subtitle {
+  font-size: 16px;
+  text-align: left;
+  line-height: 140%;
+  margin: 0;
+  color: #475569;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 32px 0;
+}
+
+.radio {
+  font-size: 16px;
+  font-optical-sizing: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 16px;
+}
+
+.input div {
+  margin-bottom: 20px;
+}
+
+.input label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.input input[type="text"] {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  box-sizing: border-box;
+  height: 52px;
+  background-color: #f8fafc;
+}
+
+.input input[type="text"]:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.input input[type="text"]:active {
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.input input[type="text"]:invalid {
+  border-color: #f00;
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.2);
+}
+
+#statsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#chessComUsername {
+  margin-bottom: 32px;
+}
+
+button {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  font-optical-sizing: auto;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  background-color: #7148fc;
+  border: none;
+  height: 52px;
+}
+
+footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 16px;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 48px 20px 32px 24px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+/* Responsive Design */
+@media (max-width: 650px) {
+
+  .container {
+    padding: 0px 24px;
+    margin: 0;
+  }
+
+
+
+  table {
+    overflow-x: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  table::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    width: 100%;
+  }
+}
