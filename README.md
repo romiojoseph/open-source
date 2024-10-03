@@ -1,47 +1,42 @@
-# Open source scripts
+# Welcome to my collection of open-source resources!
 
-Welcome to my collection of open-source scripts!
+### [Visit the website](https://romiojoseph.github.io/open-source/)
 
-Some workflows don't need to be complicated. So here, I share various scripts that I've generated using language models (LLMs) to simplify workflows and automate tasks. I want to create resources that make coding less intimidating for others who feel the same way.
+Some workflows don't need to be complicated. As a non-coder, I use LLMs to create and share resources that simplify workflows and automate tasks. Inspired by Andrej Karpathy's concept of 10,000 hours, even projects that seem to go nowhere contribute to progress through exploration.
 
-**Important notes:**
+Read more at [10,000 hours](https://romio.substack.com/p/ai-assisted-learning-journey-10000-hours-snowball-effect)
+
+Also, here's a list of [free alternatives](https://romio.substack.com/p/free-alternatives-decentralize-tech-open-source)
+
+### Important notes:
 
 - I am a non-coder who uses LLMs (Claude, Mistral, Meta AI, ChatGPT, and Gemini) to generate scripts tailored to my needs. These resources are shared openly for anyone to use.
 - Please keep in mind that I don't have formal coding knowledge, so the code structure, syntax, or best practices might not be optimal or conventional.
 - I appreciate any feedback, suggestions, or contributions from experienced coders to improve these scripts and make them more efficient, readable, and maintainable.
 
----
 
 Initially, I was hesitant about using terminal commands, fearing they could crash my Windows system. However, [my exploration of the Linux environment](https://romio.substack.com/p/repurpose-old-laptop-with-ubuntu-or-chromeosflex) sparked curiosity and helped me understand that scripting can be a powerful tool.
 
+```bash
 All I need to know is what I want, how do I want it, and the ability to properly convey that requirement to any LLM.
+```
 
 You don't need to fear using scripts, especially batch scripts (.bat). All you have to do is make sure it is coming from a trusted source and the code is publicly available, so that even though you don't have any coding knowledge, you can just copy paste it into any AI agent and confirm yourself. Also, with basic understanding, you can modify these scripts to fit your unique requirements.
 
-## What are scripts and why are they useful?
+> Windows might block the batch script from running. Just click 'More info' and then select 'Run anyway'.
 
-Scripts are a series of instructions written in a programming language that automate tasks, processes, or workflows, simplifying complex processes, saving time, and improving productivity by reducing manual effort.
+- **Script**: Automating repetitive tasks saves time and effort.
 
-**Some common examples of scripts include:**
+- **Bot**: Bots fetch data and perform tasks on schedule.
 
-- Bash scripts for Linux system administration
+- **Extension**: Simplifying tasks without switching tools or tabs.
 
-- Python scripts for data analysis and machine learning
+- **Frontend**: These tools run quickly in the browser or locally.
 
-- JavaScript scripts for web development
-
-- Batch scripts for Windows system administration (Windows might block the batch script from running. Just click 'More info' and then select 'Run anyway'.)
-
-Feel free to explore the scripts shared here—I hope they become valuable resources that help you in your day-to-day tasks!
+---
 
 
+### Feel free to explore the resources shared here.
+I hope they become helpful tools for your daily tasks!
 
-### What is pip?
-
-pip is the package installer for Python. It allows you to easily install, update, and manage additional libraries and dependencies that are not part of the Python standard library.
-
-Think of pip like an app store for Python packages. Just as you'd use an app store to download and install apps on your phone, you use pip to download and install Python packages (like python-chess) that can enhance your Python experience.
-
-- Type `python -m ensurepip` and press Enter
-
-- If pip is already installed, you'll see a message saying it's already up-to-date
+[Personal website](https://romio.framer.website/) • [Blog](https://romio.substack.com/) • [Bluesky](https://bsky.app/profile/romio.substack.com) • [YouTube](https://www.youtube.com/@romiojoseph)
