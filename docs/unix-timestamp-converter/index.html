@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unix Timestamp Converter</title>
+    <meta name="description" content="A free online tool to convert Unix timestamps to dates and vice versa.">
+    <meta property="og:image" content="images/social-image.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Unix Timestamp Converter</h1>
+            <p class="subtitle">
+                Convert between Unix timestamps and human-readable dates. Timestamps count seconds since January 1, 1970, the 
+                <span class="tooltip" data-tooltip="The epoch is a starting point for measuring time in computers. For Unix systems, it’s set to January 1, 1970.">epoch¹</span>, 
+                ensuring precision and avoiding errors.
+            </p>
+        </div>
+
+        <div class="picker">
+            <h2>Convert to Unix Timestamp</h2>
+            <div>
+                <label for="datetimeInput">Select Date and Time:</label>
+                <input type="datetime-local" id="datetimeInput" placeholder="YYYY-MM-DDTHH:MM">
+            </div>
+            <button id="convertToUnix">Convert</button>
+            <p id="unixOutput"></p>
+        </div>
+
+        <div class="picker">
+            <h2>Convert Unix Timestamp to Date</h2>
+            <div>
+                <label for="unixInput">Enter Unix Timestamp:</label>
+                <input type="number" id="unixInput" placeholder="Enter Unix Timestamp">
+            </div>
+            <button id="convertToDate">Convert</button>
+            <p id="dateOutput"></p>
+        </div>
+
+        <footer>
+            Created by <a href="https://romio.framer.website/" target="_blank" rel="noopener noreferrer">Romio</a>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
