@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Scale Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Cinzel:wght@400..900&family=Dancing+Script:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Reddit+Mono:wght@200..900&family=Reddit+Sans:ital,wght@0,200..900;1,200..900&family=Roboto+Slab:wght@100..900&family=Rubik+Mono+One&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Yatra+One&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon.png" type="image/png">
+
+    <!-- Social Image -->
+    <meta property="og:image" content="images/social-image.png">
+
+    <!-- Meta Description -->
+    <meta name="description" content="A typescale calculator to find ideal font sizes for your web project. Choose ratios, switch between rem and px, and preview text with a few Google Fonts in real-time.">
+
+    <!-- Keywords -->
+    <meta name="keywords" content="font size calculator, typography, scale ratio, typesclae, the type system, typescale generator, typescale calculator, typescale free">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="top-head">
+            <div class="title">
+                <h1>Type scale generator</h1>
+                <p class="subtitle">To find the ideal font sizes for your web project. Choose ratios, switch between rem and px, and preview text with a few Google Fonts in real-time.</p>
+            </div>
+            <button id="copyCSS"> <i class="ph-duotone ph-copy-simple"></i> Copy CSS Variables</button>
+        </div>
+    
+        <div class="basic">
+            <div class="form-element">
+                <label for="baseFontSize">Body font size</label>
+                <select id="baseFontSize" title="Body font size"></select>
+            </div>
+            
+            <div class="form-element">
+                <label for="scaleRatio">Scale ratio</label>
+                <select id="scaleRatio" title="Scale ratio">
+                <option value="1.067">Minor Second (1.067)</option>
+                <option value="1.125">Major Second (1.125)</option>
+                <option value="1.2">Minor Third (1.2)</option>
+                <option value="1.25" selected>Major Third (1.25)</option>
+                <option value="1.333">Perfect Fourth (1.333)</option>
+                <option value="1.414">Augmented Fourth (1.414)</option>
+                <option value="1.5">Perfect Fifth (1.5)</option>
+                <option value="1.6">Minor Sixth (1.6)</option>
+                <option value="1.618">Golden Ratio (1.618)</option>
+                <option value="1.667">Major Sixth (1.667)</option>
+                <option value="1.778">Minor Seventh (1.778)</option>
+                <option value="1.875">Major Seventh (1.875)</option>
+                <option value="2.0">Octave (2.0)</option>
+                </select>
+            </div>
+            
+            <div class="form-element">
+                <label for="fontFamily">Font family</label>
+                <select id="fontFamily" title="Font family">
+                <option value="Inter" selected>Inter</option>
+                <option value="Abril Fatface">Abril Fatface</option>
+                <option value="Bebas Neue">Bebas Neue</option>
+                <option value="Bricolage Grotesque">Bricolage Grotesque</option>
+                <option value="Cinzel">Cinzel</option>
+                <option value="Dancing Script">Dancing Script</option>
+                <option value="JetBrains Mono">JetBrains Mono</option>
+                <option value="Lato">Lato</option>
+                <option value="Libre Baskerville">Libre Baskerville</option>
+                <option value="Merriweather">Merriweather</option>
+                <option value="Noto Sans">Noto Sans</option>
+                <option value="Outfit">Outfit</option>
+                <option value="Playfair Display">Playfair Display</option>
+                <option value="Reddit Mono">Reddit Mono</option>
+                <option value="Reddit Sans">Reddit Sans</option>
+                <option value="Roboto Slab">Roboto Slab</option>
+                <option value="Rubik Mono One">Rubik Mono One</option>
+                <option value="Source Code Pro">Source Code Pro</option>
+                <option value="Ubuntu">Ubuntu</option>
+                <option value="Yatra One">Yatra One</option>
+                </select>
+            </div>
+    
+            <div class="controls">
+                <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" id="unitToggle" title="Toggle Unit">
+                      <span class="slider"></span>
+                    </label>
+                    <label for="unitToggle">Convert to rem</label>
+                  </div>
+                  
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" id="roundToggle" checked title="Round Values">
+                      <span class="slider"></span>
+                    </label>
+                    <label for="roundToggle">Round values</label>
+                  </div>
+                  
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" id="previewToggle" title="Preview Mode">
+                      <span class="slider"></span>
+                    </label>
+                    <label for="previewToggle">Preview</label>
+                  </div>
+                  
+                  <div class="toggle-switch">
+                    <label class="switch">
+                      <input type="checkbox" id="boldToggle" title="Bold Headings">
+                      <span class="slider"></span>
+                    </label>
+                    <label for="boldToggle">Bold headings</label>
+                  </div>
+            </div>
+    
+            <div class="custom-type">
+                <div class="form-element">
+                    <label for="customText">Try your custom text</label>
+                    <input type="text" id="customText" maxlength="128" placeholder="Enter text to preview">
+                </div>
+        
+                <button id="clearText">Clear</button>
+            </div>
+    
+        </div>
+    
+      
+        <div class="table-container">
+            <table id="fontTable">
+                <thead>
+                  <tr>
+                    <th>Element</th>
+                    <th>Font size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td id="displayLargeText" data-default="Display Large">Display Large</td><td id="displayLarge"></td></tr>
+                  <tr><td id="displayMediumText" data-default="Display Medium">Display Medium</td><td id="displayMedium"></td></tr>
+                  <tr><td id="displaySmallText" data-default="Display Small">Display Small</td><td id="displaySmall"></td></tr>
+                  <tr><td id="heading1Text" data-default="Heading 1">Heading 1</td><td id="heading1"></td></tr>
+                  <tr><td id="heading2Text" data-default="Heading 2">Heading 2</td><td id="heading2"></td></tr>
+                  <tr><td id="heading3Text" data-default="Heading 3">Heading 3</td><td id="heading3"></td></tr>
+                  <tr><td id="heading4Text" data-default="Heading 4">Heading 4</td><td id="heading4"></td></tr>
+                  <tr><td id="heading5Text" data-default="Heading 5">Heading 5</td><td id="heading5"></td></tr>
+                  <tr><td id="heading6Text" data-default="Heading 6">Heading 6</td><td id="heading6"></td></tr>
+                  <tr><td id="subtitleText" data-default="Subtitle">Subtitle</td><td id="subtitle"></td></tr>
+                  <tr><td id="bodyText" data-default="Body">Body</td><td id="body"></td></tr>
+                  <tr><td id="captionText" data-default="Caption">Caption</td><td id="caption"></td></tr>
+                  <tr><td id="labelText" data-default="Label">Label</td><td id="label"></td></tr>
+                  <tr><td id="taglineText" data-default="Tagline">Tagline</td><td id="tagline"></td></tr>
+                </tbody>
+              </table>
+        </div>
+
+        <div class="recommended">
+          <i class="ph-duotone ph-arrow-circle-up-right"></i>
+          <p><a href="https://romiojoseph.github.io/open-source/design-token-studio/color-variable-editor" target="_blank" rel="noopener noreferrer" title="Typescale calculator" class="recommend-link">Color variable editor</a> A tool to view and manage color palettes, check contrast accessibility, and copy CSS variables.</p>
+        </div>
+
+    </div>
+
+    <div class="desktop-message">
+      <p>Please visit this project on a desktop for the best experience.</p>
+    </div>
+  
+  <script src="script.js"></script>
+  
+</body>
+</html>

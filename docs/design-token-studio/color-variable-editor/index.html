@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Color Variable Editor</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+        <!-- Favicon -->
+        <link rel="icon" href="images/favicon.png" type="image/png">
+
+        <!-- Social Image -->
+        <meta property="og:image" content="images/social-image.png">
+    
+        <!-- Meta Description -->
+        <meta name="description" content="View and manage color palettes, check contrast accessibility, and copy CSS variables with this free online tool. Simplify your website design workflow.">
+    
+        <!-- Keywords -->
+        <meta name="keywords" content="color palette, contrast checker, CSS variables, website design, accessibility, color management, WCAG compliance, web design tool, WCAG 2.1 contrast checker">
+    
+        <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="top-head">
+      <div class="title">
+          <h1>Color variable editor</h1>
+          <p class="subtitle">
+              View and manage color palettes, check contrast accessibility, and copy CSS variables.
+          </p>
+      </div>
+      <button id="copy-css-variables"><i class="ph-duotone ph-copy-simple"></i> Copy CSS Variables</button>
+  </div>
+
+  <div class="workspace">
+
+    <div id="color-categories">
+
+      <div class="neutral">
+        <h4>Neutral</h4>
+        <div class="category" id="neutral">
+
+          <div class="form-field">
+            <label class="form-label" for="neutral-color-group">Color group</label>
+            <select id="neutral-color-group"></select>
+          </div>
+
+          <div class="color-display" id="neutral-color-display"></div>
+        </div>
+      </div>
+
+      <div class="primary">
+        <h4>Primary</h4>
+        <div class="category" id="primary">
+
+          <div class="form-section">
+            <div class="form-field">
+              <label class="form-label" for="primary-color-group">Color group</label>
+              <select id="primary-color-group"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="primary-base">Base</label>
+              <select id="primary-base"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="primary-light">Light</label>
+              <select id="primary-light"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="primary-accent">Accent</label>
+              <select id="primary-accent"></select>
+            </div>
+            
+            <div class="form-field">
+              <label class="form-label" for="primary-dark">Dark</label>
+              <select id="primary-dark"></select>
+            </div>
+          </div>
+
+          <div class="color-display" id="primary-color-display"></div>
+        </div>
+      </div>
+
+      <div class="secondary">
+
+        <div class="section-title">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-secondary" title="Toggle secondary">
+            <span class="slider round"></span>
+          </label>
+          <h4>Secondary</h4>
+        </div>
+
+        
+        
+        <div class="category hidden" id="secondary">
+
+          <div class="form-section">
+
+            <div class="form-field">
+              <label class="form-label" for="secondary-color-group">Color group</label>
+              <select id="secondary-color-group"></select>
+            </div>
+  
+  
+            <div class="form-field">
+              <label class="form-label" for="secondary-base">Base</label>
+              <select id="secondary-base"></select>
+            </div>
+  
+  
+            <div class="form-field">
+              <label class="form-label" for="secondary-light">Light</label>
+              <select id="secondary-light"></select>
+            </div>
+  
+  
+            <div class="form-field">
+              <label class="form-label" for="secondary-accent">Accent</label>
+              <select id="secondary-accent"></select>
+            </div>
+  
+  
+            <div class="form-field">
+              <label class="form-label" for="secondary-dark">Dark</label>
+              <select id="secondary-dark"></select>
+            </div>
+
+          </div>
+
+          <div class="color-display" id="secondary-color-display"></div>
+
+        </div>
+      </div>
+
+  
+      <div class="tertiary">
+
+        <div class="section-title">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-tertiary" title="Toggle tertiary">
+            <span class="slider round"></span>
+          </label>
+          <h4>Tertiary</h4>
+        </div>
+
+        <div class="category hidden" id="tertiary">
+
+          <div class="form-section">
+
+            <div class="form-field">
+              <label class="form-label" for="tertiary-color-group">Color Group:</label>
+              <select id="tertiary-color-group"></select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="tertiary-base">Base:</label>
+              <select id="tertiary-base"></select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="tertiary-light">Light:</label>
+              <select id="tertiary-light"></select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="tertiary-accent">Accent:</label>
+              <select id="tertiary-accent"></select>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="tertiary-dark">Dark:</label>
+              <select id="tertiary-dark"></select>
+            </div>
+
+          </div>
+
+          <div class="color-display" id="tertiary-color-display"></div>
+        </div>
+      </div>
+
+  
+      <div class="success">
+
+        <div class="section-title">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-success" title="Toggle success">
+            <span class="slider round"></span>
+          </label>
+          <h4>Success</h4>
+        </div>
+  
+        <div class="category hidden" id="success">
+
+          <div class="form-section">
+
+            <div class="form-field">
+              <label class="form-label" for="success-color-group">Color Group:</label>
+              <select id="success-color-group"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="success-base">Base:</label>
+              <select id="success-base"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="success-light">Light:</label>
+              <select id="success-light"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="success-accent">Accent:</label>
+              <select id="success-accent"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="success-dark">Dark:</label>
+              <select id="success-dark"></select>
+            </div>
+
+          </div>
+
+          <div class="color-display" id="success-color-display"></div>
+
+        </div>
+      </div>
+
+  
+      <div class="warning">
+
+        <div class="section-title">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-warning" title="Toggle warning">
+            <span class="slider round"></span>
+          </label>
+          <h4>Warning</h4>
+        </div>
+ 
+        <div class="category hidden" id="warning">
+
+          <div class="form-section">
+
+            <div class="form-field">
+              <label class="form-label" for="warning-color-group">Color Group:</label>
+              <select id="warning-color-group"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="warning-base">Base:</label>
+              <select id="warning-base"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="warning-light">Light:</label>
+              <select id="warning-light"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="warning-accent">Accent:</label>
+              <select id="warning-accent"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="warning-dark">Dark:</label>
+              <select id="warning-dark"></select>
+            </div>
+
+          </div>
+
+          <div class="color-display" id="warning-color-display"></div>
+        </div>
+      </div>
+
+  
+      <div class="error">
+
+        <div class="section-title">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-error" title="Toggle error">
+            <span class="slider round"></span>
+          </label>
+          <h4>Error</h4>
+        </div>
+   
+        <div class="category hidden" id="error">
+
+          <div class="form-section">
+
+            <div class="form-field">
+              <label class="form-label" for="error-color-group">Color Group:</label>
+              <select id="error-color-group"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="error-base">Base:</label>
+              <select id="error-base"></select>  
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="error-light">Light:</label>
+              <select id="error-light"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="error-accent">Accent:</label>
+              <select id="error-accent"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="error-dark">Dark:</label>
+              <select id="error-dark"></select>
+            </div>
+
+          </div>
+
+          <div class="color-display" id="error-color-display"></div>
+        </div>
+      </div>
+
+  
+      <div class="info">
+
+        <div class="section-title">
+          <label class="toggle-switch">
+            <input type="checkbox" id="toggle-info" title="Toggle info">
+            <span class="slider round"></span>
+          </label>
+          <h4>Info</h4>
+        </div>
+ 
+        <div class="category hidden" id="info">
+
+          <div class="form-section">
+            <div class="form-field">
+              <label class="form-label" for="info-color-group">Color Group:</label>
+              <select id="info-color-group"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="info-base">Base:</label>
+              <select id="info-base"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="info-light">Light:</label>
+              <select id="info-light"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="info-accent">Accent:</label>
+              <select id="info-accent"></select>
+            </div>
+  
+            <div class="form-field">
+              <label class="form-label" for="info-dark">Dark:</label>
+              <select id="info-dark"></select>
+            </div>
+          </div>
+
+          <div class="color-display" id="info-color-display"></div>
+        </div>
+      </div>
+
+
+    </div>
+  
+    <div id="contrast-checker">
+      <h6>WCAG Contrast Checker</h6>
+
+      <div class="colors-check">
+
+        <div class="form-field">
+          <label class="form-label" for="foreground">Foreground</label>
+  
+          <div class="color-field">
+            <input type="color" id="foreground" value="#000000" oninput="updateHexFromColor('foreground')">
+            <input type="text" id="foregroundHex" class="hex-input" value="000000"
+            oninput="updateColorFromHex('foreground')" title="Hex code">  
+          </div>
+        </div>
+  
+        <div class="form-field">
+          <label class="form-label" for="background">Background</label>
+  
+          <div class="color-field">
+            <input type="color" id="background" value="#ffffff" oninput="updateHexFromColor('background')">
+            <input type="text" id="backgroundHex" class="hex-input" value="ffffff"
+            oninput="updateColorFromHex('background')" title="Hex code">  
+          </div>
+        </div>
+
+        <button onclick="reverseColors()"><i class="ph-duotone ph-swap"></i>Swap colors</button>
+
+      </div>
+  
+      <div id="results"></div>
+
+      <div class="footnote">
+        WCAG guidelines require a 4.5:1 contrast ratio for normal text and 3:1 for large text at Level AA. For Level AAA, it's 7:1 for normal and 4.5:1 for large text to ensure readability.
+      </div>
+
+      <div class="recommended">
+          <i class="ph-duotone ph-arrow-circle-up-right"></i>
+          <p><a href="https://romiojoseph.github.io/open-source/design-token-studio/type-scale-generator" target="_blank" rel="noopener noreferrer" title="Typescale calculator" class="recommend-link">Typescale calculator</a> A tool to find ideal font sizes for your web project.</p>
+      </div>
+      
+    </div>
+
+  </div>
+
+  </div>
+
+  <div class="desktop-message">
+    <p>Please visit this project on a desktop for the best experience.</p>
+  </div>
+
+  <script src="colors.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
