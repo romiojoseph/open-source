@@ -346,8 +346,8 @@ select:hover {
   bottom: 32px; /* Position from bottom */
   left: 50%; /* Center horizontally */
   transform: translateX(-50%); /* Center alignment */
-  background-color: var(--eclipse-11); /* Semi-transparent background */
-  color: var(--eclipse-1); /* Text color */
+  background-color: var(--gold-12); /* Semi-transparent background */
+  color: var(--gold-1); /* Text color */
   padding: 32px 48px; /* Padding */
   border-radius: 24px; /* Rounded corners */
   z-index: 1000; /* Ensure it’s above other elements */
