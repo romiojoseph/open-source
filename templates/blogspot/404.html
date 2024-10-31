@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogspot - Static Site Generator</title>
+    <meta name="description"
+        content="Blogspot is a custom Static Site Generator (SSG) built with Node.js and Showdown.js. It converts Markdown files from Obsidian into fast, scalable, and customizable static HTML websites. Perfect for bloggers, writers, and developers seeking simplicity and flexibility.">
+    <meta property="og:image" content="assets/error-social-image.png">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="robots" content="index, follow">
+    <script type="text/javascript">
+        (function (l) {
+            // Check if we're on a subpage (URL path contains more than just "/")
+            if (l.pathname.length > 1) {
+                l.href = '/blogspot/404.html'; // Redirect to the 404.html in your repo
+            }
+        }(window.location))
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h5 class="blog-name" id="logo" onclick="window.location.href='index.html'">Blogspot</h5>
+
+            <button class="telegram-btn" onclick="window.open('https://t.me/daily_astronomy_pictures', '_blank');">
+                <i class="ph-duotone ph-telegram-logo"></i>
+                Join on Telegram
+            </button>
+        </header>
+
+        <main>
+            <div class="container">
+
+                <img class="astro-gif" src="assets/404.gif" alt="404 Error">
+
+                <div class="four-not-four">
+                    <h2 class="main-post-heading">Uh-oh! We have a problem...</h2>
+                    <p class="main-post-subtitle">Looks like this page took a wrong turn. It's not here, but don't
+                        worry—the homepage is a great place to start. Click the logo to head back.</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="text-group">
+                <h6 class="comment-question">Got questions or insights?</h6>
+
+                <div class="disclaimer">
+                    <p class="disclaimer">I don't have newsletters here because they can be overwhelming. Instead, you
+                        can stay updated with new posts by subscribing to the RSS feed or joining the Telegram channel
+                        for instant
+                        notifications.</p>
+                    <p class="disclaimer">All opinions shared are mine and don't reflect any organizations I'm
+                        associated with. Feel free to share your thoughts, questions, or feedback in the Telegram
+                        channel.</p>
+                </div>
+            </div>
+
+            <div class=" cta-group">
+                <button class="telegram-btn" onclick="window.open('https://t.me/daily_astronomy_pictures', '_blank');">
+                    <i class="ph-duotone ph-telegram-logo"></i>
+                    Join on Telegram
+                </button>
+                <button class="rss-btn" onclick="window.open('feed.xml', '_blank');">
+                    <i class="ph-duotone ph-rss"></i>
+                    Follow the RSS feed
+                </button>
+            </div>
+
+            <div class="follow-icons">
+                <button class="social-icon"
+                    onclick="window.open('https://bsky.app/profile/romio.substack.com/feed/aaaomgpqdm7kg', '_blank')"
+                    title="Bluesky">
+                    <img src="assets/bluesky.svg" alt="Bluesky" width="32" height="32">
+                </button>
+
+                <button class="social-icon" onclick="window.open('https://twitter.com', '_blank')" title="Twitter">
+                    <img src="assets/twitter.svg" alt="Twitter" width="32" height="32">
+                </button>
+
+                <button class="social-icon"
+                    onclick="window.open('https://romiojoseph.github.io/open-source/', '_blank')" title="GitHub">
+                    <img src="assets/github.svg" alt="GitHub" width="32" height="32">
+                </button>
+
+                <button class="social-icon" onclick="window.open('https://www.youtube.com/@romiojoseph', '_blank')"
+                    title="YouTube">
+                    <img src="assets/youtube.svg" alt="YouTube" width="32" height="32">
+                </button>
+
+                <button class="social-icon" onclick="window.open('https://in.pinterest.com/romiojoseph/', '_blank')"
+                    title="Pinterest">
+                    <img src="assets/pinterest.svg" alt="Pinterest" width="32" height="32">
+                </button>
+            </div>
+
+            <div id="footnote">
+                <p class="footnote">© 2024 SSG Blog</p>
+                <a href="terms-and-policies.html" class="footnote">Terms, Policies and Disclaimer</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

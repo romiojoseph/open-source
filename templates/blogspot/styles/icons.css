@@ -1,0 +1,14 @@
+.ph-link,
+.ph-telegram-logo,
+.ph-rss,
+.ph-cloud-arrow-down,
+.ph-globe,
+.ph-framer-logo,
+.ph-git-fork {
+    font-size: 18px;
+}
+
+.ph-caret-up {
+    font-size: 24px;
+    color: var(--obsidian-7);
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Your blog name]s' blog posts</title>
+
+    <meta property="og:title" content="[Your blog name]s' blog posts" id="og-title">
+    <meta property="og:description"
+        content="Click to read the blog now. No more newsletters—join the Telegram channel or follow the RSS feed for updates."
+        id="og-description">
+    <meta property="og:image" content="assets/default-social-image.png" id="og-image">
+    <meta property="og:type" content="blog">
+    <meta name="author" content="Your Name" id="meta-author">
+    <meta name="description"
+        content="Click to read the blog now. No more newsletters—join the Telegram channel or follow the RSS feed for updates."
+        id="meta-description">
+
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/duotone/style.css" />
+
+    <link rel="stylesheet" href="styles/post.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/sunburst.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <meta name="robots" content="index, follow">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <header>
+            <h5 class="blog-name" id="logo" onclick="window.location.href='../index.html'">Blogspot</h5>
+
+            <button class="telegram-btn" onclick="window.open('https://t.me/daily_astronomy_pictures', '_blank');">
+                <i class="ph-duotone ph-telegram-logo"></i>
+                Join on Telegram
+            </button>
+        </header>
+
+        <div class="progress-indicator">
+            <div class="progress-bar"></div>
+        </div>
+
+        <section class="detail-post-heading">
+            <p id="post-category"></p>
+            <div class="title-description">
+                <h3 id="post-title"></h3>
+                <p id="post-description"></p>
+            </div>
+            <p id="post-author-date"></p>
+            <button id="copy-link" aria-label="Copy link"><i class="ph-duotone ph-link"></i>Copy link</button>
+        </section>
+
+        <article id="post-content"></article>
+
+        <footer>
+            <div class="text-group">
+                <h6 class="comment-question">Got questions or insights?</h6>
+
+                <div class="disclaimer">
+                    <p class="disclaimer">I don't have newsletters here because they can be overwhelming. Instead, you
+                        can stay updated with new posts by subscribing to the RSS feed or joining the Telegram channel
+                        for instant
+                        notifications.</p>
+                    <p class="disclaimer">All opinions shared are mine and don't reflect any organizations I'm
+                        associated with. Feel free to share your thoughts, questions, or feedback in the Telegram
+                        channel.</p>
+                </div>
+            </div>
+
+            <div class=" cta-group">
+                <button class="telegram-btn" onclick="window.open('https://t.me/daily_astronomy_pictures', '_blank');">
+                    <i class="ph-duotone ph-telegram-logo"></i>
+                    Join on Telegram
+                </button>
+                <button class="rss-btn" onclick="window.open('../feed.xml', '_blank');">
+                    <i class="ph-duotone ph-rss"></i>
+                    Follow the RSS feed
+                </button>
+            </div>
+
+            <div class="follow-icons">
+                <button class="social-icon"
+                    onclick="window.open('https://bsky.app/profile/romio.substack.com/feed/aaaomgpqdm7kg', '_blank')"
+                    title="Bluesky">
+                    <img src="../assets/bluesky.svg" alt="Bluesky" width="32" height="32">
+                </button>
+
+                <button class="social-icon" onclick="window.open('https://twitter.com', '_blank')" title="Twitter">
+                    <img src="../assets/twitter.svg" alt="Twitter" width="32" height="32">
+                </button>
+
+                <button class="social-icon"
+                    onclick="window.open('https://romiojoseph.github.io/open-source/', '_blank')" title="GitHub">
+                    <img src="../assets/github.svg" alt="GitHub" width="32" height="32">
+                </button>
+
+                <button class="social-icon" onclick="window.open('https://www.youtube.com/@romiojoseph', '_blank')"
+                    title="YouTube">
+                    <img src="../assets/youtube.svg" alt="YouTube" width="32" height="32">
+                </button>
+
+                <button class="social-icon" onclick="window.open('https://in.pinterest.com/romiojoseph/', '_blank')"
+                    title="Pinterest">
+                    <img src="../assets/pinterest.svg" alt="Pinterest" width="32" height="32">
+                </button>
+            </div>
+
+            <div id="footnote">
+                <p class="footnote">© 2024 SSG Blog</p>
+                <a href="../terms-and-policies.html" class="footnote">Terms, Policies and Disclaimer</a>
+            </div>
+        </footer>
+    </main>
+
+    <button id="topButton" onclick="scrollToTop()" aria-label="Back to top">
+        <i class="ph ph-caret-up"></i>
+    </button>
+
+    <script>
+        // Show button when scrolling down
+        window.onscroll = function () { toggleButton() };
+
+        function toggleButton() {
+            const button = document.getElementById("topButton");
+            if (document.body.scrollTop > 650 || document.documentElement.scrollTop > 650) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        }
+
+        // Scroll to top smoothly
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+    <script src="js/copyLink.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/openExternalLinks.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+[
+    {
+        "file": "blog\\why-i-created-this-template.html",
+        "title": "Why I created this template",
+        "description": "I always wanted to create things that come to my mind. A while ago, Framer made a lot of things possible, sparking my curiosity. And so I began.",
+        "social_image": "blog/media/images/why.png",
+        "author": "Romio",
+        "published": "2024-10-30T07:38:00.000Z",
+        "updated": null,
+        "category": "blog",
+        "post_type": "regular"
+    },
+    {
+        "file": "blog\\supported-styles.html",
+        "title": "Supported styles",
+        "description": "This documentation covers the supported Markdown styles and tags for this project. Use this as a quick reference to format your content effectively.",
+        "social_image": "blog/media/images/support-styles-image.png",
+        "author": "Romio",
+        "published": "2024-10-27T16:28:00.000Z",
+        "updated": "2024-10-29T11:33:00.000Z",
+        "category": "docs",
+        "post_type": "regular"
+    },
+    {
+        "file": "blog\\blogspot-template-doc.html",
+        "title": "Blogspot template doc",
+        "description": "This documentation explains how to set up the Blogspot template for the first time and then use it seamlessly afterward to create your personal blog.",
+        "social_image": "blog/media/images/build-doc-image.png",
+        "author": "Romio",
+        "published": "2024-10-27T07:38:00.000Z",
+        "updated": "2024-10-28T21:36:00.000Z",
+        "category": "docs",
+        "post_type": "pinned"
+    },
+    {
+        "file": "blog\\blogging-over-social-media.html",
+        "title": "Why blog?",
+        "description": "A personal perspective on how blogging offers more freedom and control than social media and why sharing your ideas and experiences in your own space matters.",
+        "social_image": "blog/media/images/blogging.png",
+        "author": "Romio",
+        "published": "2024-10-24T02:46:00.000Z",
+        "updated": null,
+        "category": "opinions",
+        "post_type": "regular"
+    },
+    {
+        "file": "blog\\script-execution-demo.html",
+        "title": "Script execution demo",
+        "description": "View a step-by-step demonstration of the script execution process, covering initialization, updates, and synchronization.",
+        "social_image": "blog/media/images/terminal.png",
+        "author": "Romio",
+        "published": "2024-10-23T17:50:00.000Z",
+        "updated": null,
+        "category": "docs",
+        "post_type": "regular"
+    },
+    {
+        "file": "blog\\markdown-and-html.html",
+        "title": "Markdown and HTML: History, evolution, and current state",
+        "description": "Explore the detailed histories, key milestones, and current states of Markdown and HTML. Discover their origins, evolution, and significance in web development.",
+        "social_image": "assets/default-social-image.png",
+        "author": "Romio",
+        "published": "2024-10-16T14:46:00.000Z",
+        "updated": null,
+        "category": "resources",
+        "post_type": "regular"
+    }
+]

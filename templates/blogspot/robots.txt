@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /blog/media/ 
+
+Sitemap: https://romiojoseph.github.io/blogspot/feed.xml
