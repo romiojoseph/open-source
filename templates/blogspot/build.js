@@ -85,12 +85,19 @@ function getMarkdownFilesRecursive(directory) {
 
 function generateRSSFeed(posts, channelInfo) {
     const rssItems = posts.map(post => {
-        const urlFilePath = post.file.replace(/\\/g, '/');
-
+        let link;
+        if (post.file.startsWith("/")) {
+            // Absolute path: Keep it as is (assuming it's already correct)
+            link = channelInfo.link + post.file;
+        } else {
+            // Relative path: Join correctly with the channel link
+            const urlFilePath = post.file.replace(/\\/g, '/');
+            link = channelInfo.link + "/" + urlFilePath;  // Add the missing "/"
+        }
         return `
             <item>
                 <title>${post.title}</title>
-                <link>${path.posix.join(channelInfo.link, urlFilePath)}</link>
+                <link>${link}</link>
                 <description>${post.description}</description>
                 <pubDate>${formatDateForRSS(post.published)}</pubDate>
             </item>
