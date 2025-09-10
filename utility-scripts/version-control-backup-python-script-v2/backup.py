@@ -303,15 +303,69 @@ def validate_path(path: str, is_backup_folder: bool = False) -> Optional[str]:
         print(f"\n{ERROR_COLOR}Error: Invalid path format: {e}{RESET_COLOR}\n")
         return None
         
+def get_all_backup_folders(config: Dict) -> list:
+    """Returns a sorted list of all unique backup folders used so far."""
+    backup_folders = set()
+    for project in config.values():
+        folder = project.get("backup_folder")
+        if folder:
+            backup_folders.add(folder)
+    return sorted(backup_folders)
+
+def select_backup_folder(config: Dict) -> Optional[str]:
+    """Allows the user to select a backup folder from previous ones or add a new one."""
+    backup_folders = get_all_backup_folders(config)
+    if not backup_folders:
+        # No previous backup folders, prompt for new
+        while True:
+            backup_path = input(f"\n{QUESTION_COLOR}Please enter a new path for the backup folder: {RESET_COLOR}")
+            validated_path = validate_path(backup_path, is_backup_folder=True)
+            if validated_path:
+                return validated_path
+            print("Please enter a valid backup folder path.")
+    else:
+        print(f"{QUESTION_COLOR}Select a backup folder:{RESET_COLOR}")
+        for i, folder in enumerate(backup_folders, start=1):
+            print(f"{CHOICE_COLOR}{i}. {folder}{RESET_COLOR}")
+        print(f"{CHOICE_COLOR}{len(backup_folders) + 1}. Enter a new backup folder{RESET_COLOR}")
+        while True:
+            choice = input(f"\n{QUESTION_COLOR}Enter the number of the backup folder: {RESET_COLOR}").strip()
+            if not choice:
+                print("Please enter a number.")
+                continue
+            try:
+                choice = int(choice)
+                if 1 <= choice <= len(backup_folders):
+                    selected_folder = backup_folders[choice - 1]
+                    validated_path = validate_path(selected_folder, is_backup_folder=True)
+                    if validated_path:
+                        return validated_path
+                    else:
+                        print("Selected backup folder is invalid. Please choose another or add a new one.")
+                elif choice == len(backup_folders) + 1:
+                    while True:
+                        backup_path = input(f"\n{QUESTION_COLOR}Please enter a new path for the backup folder: {RESET_COLOR}")
+                        validated_path = validate_path(backup_path, is_backup_folder=True)
+                        if validated_path:
+                            return validated_path
+                        print("Please enter a valid backup folder path.")
+                else:
+                    print(f"Invalid choice. Please enter a number between 1 and {len(backup_folders) + 1}.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+
 def create_backup(project_folder: str, backup_folder: str, version: str) -> Optional[str]:
-    """Creates a zip archive backup of the project folder."""
+    """Creates a zip archive backup of the project folder inside a subfolder named after the project."""
     if not os.path.exists(project_folder):
         logging.error(f"Project folder does not exist: {project_folder}")
         print(f"\n{ERROR_COLOR}Error: Project folder not found: {project_folder}{RESET_COLOR}\n")
         return None
 
-    backup_file = os.path.join(backup_folder, f"{os.path.basename(project_folder)}_backup_{version}.zip")
-    
+    project_name = os.path.basename(os.path.normpath(project_folder))
+    project_backup_dir = os.path.join(backup_folder, project_name)
+    os.makedirs(project_backup_dir, exist_ok=True)
+    backup_file = os.path.join(project_backup_dir, f"{project_name}_backup_{version}.zip")
+
     try:
         safe_file_operation(
             shutil.make_archive,
@@ -478,22 +532,9 @@ def main() -> None:
                         backup_folder = config[project_name]["backup_folder"]
                         if not validate_path(backup_folder, is_backup_folder=True):
                             backup_folder = None  # Reset if invalid
-                            while True:
-                                backup_path = input(f"\n{QUESTION_COLOR}Please enter a new path for the backup folder: {RESET_COLOR}")
-                                validated_path = validate_path(backup_path, is_backup_folder=True)
-                                if validated_path:
-                                    backup_folder = validated_path
-                                    break
-                                print("Please enter a valid backup folder path.")
+                            backup_folder = select_backup_folder(config)
                     else:
-                        backup_folder = None
-                        while True:
-                            backup_path = input(f"\n{QUESTION_COLOR}Please enter a new path for the backup folder: {RESET_COLOR}")
-                            validated_path = validate_path(backup_path, is_backup_folder=True)
-                            if validated_path:
-                                backup_folder = validated_path
-                                break
-                            print("Please enter a valid backup folder path.")
+                        backup_folder = select_backup_folder(config)
 
                     # --- Project Analysis and Backup Decision ---
                     logs = load_project_logs(project_name)
